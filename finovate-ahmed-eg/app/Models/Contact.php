@@ -4,20 +4,28 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 
-class DocumentTag extends Model
+class Contact extends Model
 {
     use HasFactory;
 
     protected $fillable = [
         'company_id',
+        'contactable_id',
+        'contactable_type',
         'name',
-        'color',
-        'description',
+        'position',
+        'email',
+        'phone',
+        'mobile',
+        'is_primary',
+        'notes',
     ];
 
     protected $casts = [
+        'is_primary' => 'boolean',
         'created_at' => 'datetime',
         'updated_at' => 'datetime',
     ];
@@ -27,8 +35,8 @@ class DocumentTag extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function documents(): BelongsToMany
+    public function contactable(): MorphTo
     {
-        return $this->morphedByMany(InternalDocument::class, 'taggable', 'document_taggable');
+        return $this->morphTo();
     }
 }
