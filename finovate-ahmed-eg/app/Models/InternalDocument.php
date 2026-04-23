@@ -2,38 +2,38 @@
 
 namespace App\Models;
 
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\MorphTo;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 
 class InternalDocument extends Model
 {
+    use HasFactory;
+
     protected $fillable = [
         'company_id',
-        'document_category',
-        'document_type',
+        'documentable_id',
+        'documentable_type',
+        'document_type', // Contract, Memo, Decision, Report, Letter, Other
         'title',
-        'reference_number',
-        'document_date',
-        'expiry_date',
-        'created_by',
-        'department_id',
+        'description',
         'file_path',
         'file_name',
         'file_size',
-        'description',
-        'metadata',
+        'mime_type',
         'is_confidential',
-        'is_signed',
+        'expiry_date',
+        'status',
+        'notes',
     ];
 
     protected $casts = [
-        'document_date' => 'date',
-        'expiry_date' => 'date',
-        'file_size' => 'integer',
-        'metadata' => 'array',
         'is_confidential' => 'boolean',
-        'is_signed' => 'boolean',
+        'expiry_date' => 'date',
+        'created_at' => 'datetime',
+        'updated_at' => 'datetime',
     ];
 
     public function company(): BelongsTo
@@ -41,18 +41,13 @@ class InternalDocument extends Model
         return $this->belongsTo(Company::class);
     }
 
-    public function creator(): BelongsTo
+    public function documentable(): MorphTo
     {
-        return $this->belongsTo(User::class, 'created_by');
-    }
-
-    public function department(): BelongsTo
-    {
-        return $this->belongsTo(Department::class);
+        return $this->morphTo();
     }
 
     public function tags(): MorphToMany
     {
-        return $this->morphToMany(DocumentTag::class, 'taggable');
+        return $this->morphToMany(DocumentTag::class, 'taggable', 'document_taggable');
     }
 }
