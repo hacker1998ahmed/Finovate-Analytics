@@ -6,15 +6,17 @@ composer.lock
 .env.*
 !.env.example
 
-# Database
-database/seeds/
-database/factories/
+# PHP
+*.php~
+*.php.bak
+*.swp
 
 # Build and cache
 bootstrap/cache/
-storage/logs/
-storage/framework/
-public/storage/
+storage/framework/cache/
+storage/framework/sessions/
+storage/framework/views/
+public/storage
 
 # IDE
 .vscode/
@@ -28,7 +30,5 @@ Thumbs.db
 
 # Logs
 *.log
-
-# Temporary files
-*.tmp
+storage/logs/
 ```
