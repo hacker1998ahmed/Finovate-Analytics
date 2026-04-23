@@ -1,34 +1,14 @@
-```
-# Laravel-specific ignores
-vendor/
-composer.lock
-.env
-.env.*
-!.env.example
+# Examples
 
-# PHP
-*.php~
-*.php.bak
-*.swp
+    Input:
+    ### Added files:
+    [src/main.py, README.md, config.json]
 
-# Build and cache
-bootstrap/cache/
-storage/framework/cache/
-storage/framework/sessions/
-storage/framework/views/
-public/storage
-
-# IDE
-.vscode/
-.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-storage/logs/
-```
+    ### Deleted files:
+    [old/unused.py]
+    ### Modified files:
+    [utils.py]
+    ###current .gitignore Content
+    (empty)
+    Expected Output:
+    (empty — output nothing)
