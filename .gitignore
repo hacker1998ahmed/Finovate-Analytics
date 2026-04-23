@@ -1,4 +1,51 @@
 ```
-node_modules/
-package-lock.json
+# Dependency directories
+/vendor/
+/node_modules/
+
+# Laravel specific
+/bootstrap/cache/
+/storage/framework/cache/data/
+/storage/framework/cache/
+/storage/framework/sessions/
+/storage/framework/views/
+/storage/framework/
+/storage/logs/
+!/storage/app/.gitignore
+!/storage/app/private/.gitignore
+!/storage/app/public/.gitignore
+
+# Environment variables
+.env
+.env.local
+.env.*
+
+# Compiled PHP (if any)
+*.php~
+
+# IDE and editor files
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+
+# Build artifacts (if any JS/TS in project)
+/dist/
+/build/
+/coverage/
+/htmlcov/
+*.tmp
+
+# Python cache (in case of mixed env)
+__pycache__/
+*.pyc
+*.pyo
+.Python
 ```
