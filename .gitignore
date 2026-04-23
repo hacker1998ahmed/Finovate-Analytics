@@ -1,83 +1,80 @@
 ```
 # Laravel-specific ignores
-/vendor/
-/storage/logs/*
-/storage/framework/cache/*
-/storage/framework/sessions/*
-/storage/framework/views/*
-/bootstrap/cache/*
-/public/storage
+vendor/
+bootstrap/cache/
+storage/logs/
+storage/framework/
+public/storage/
 
-# Environment
+# Environment specific files
 .env
 .env.local
 .env.*
 !.env.example
 
-# Dependencies
-/node_modules/
-/composer.lock
-
-# IDE
-/.vscode/
-/.idea/
-*.swp
-*.swo
-
-# OS
-.DS_Store
-Thumbs.db
-
-# Logs
-*.log
-
-# Compiled files
+# Compiled and build artifacts
+*.php~
 *.pyc
 __pycache__/
+*.o
+*.obj
+*.exe
+*.dll
+*.so
+*.a
+*.out
 
-# Build artifacts
-/dist/
-/build/
-/target/
-/coverage/
-/htmlcov/
-/.nyc_output
-/.cache/
-
-# Temporary files
-*.tmp
-*.temp
-*~
+# Dependencies
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.pnpm-store/
+.bower-cache/
+.bower-registry/
+.bower-tmp/
 
 # Database
 *.sqlite
 *.db
 
-# Backup files
-*.bak
-*.backup
+# Logs
+*.log
+logs/
+error_log
+access_log
 
-# Compression
-*.zip
-*.gz
-*.tar
-*.tgz
-*.bz2
-*.xz
-*.7z
-*.rar
-*.zst
-*.lz4
-*.lzh
-*.cab
-*.arj
-*.rpm
-*.deb
-*.Z
-*.lz
-*.lzo
-*.tar.gz
-*.tar.bz2
-*.tar.xz
-*.tar.zst
+# Cache and temporary files
+.cache/
+.tmp/
+.temp/
+*.tmp
+*.temp
+.DS_Store
+Thumbs.db
+
+# IDE specific
+.vscode/
+.idea/
+*.swp
+*.swo
+*.swn
+*.sou
+*.sub
+*.lok
+*~
+
+# Testing
+.phpunit.result.cache
+.phpunit.xml
+.phpunit.xml.dist
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
 ```
